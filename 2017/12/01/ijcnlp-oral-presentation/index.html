@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        識別驗證碼 · wind&#39;s blog
+        Oral Presentation at IJCNLP Workshop (DDDSM) · wind&#39;s blog
         
     </title>
     <link rel="icon" href= /wind6.jpg>
@@ -63,7 +63,7 @@
                 <a href="/" >wind&#39;s blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">識別驗證碼</a>
+                <a href="#" class="post-name">Oral Presentation at IJCNLP Workshop (DDDSM)</a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            識別驗證碼
+            Oral Presentation at IJCNLP Workshop (DDDSM)
             <!-- 404 -->
             
         </h1>
@@ -102,19 +102,15 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = Deep Learning>Deep Learning</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = IJCNLP>IJCNLP</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = CNN>CNN</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = RNN>RNN</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 批踢踢>批踢踢</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = Conference>Conference</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/11/19</span>
+                <span class="post-intro-time">2017/12/01</span>
             </div>
         
     </div>
@@ -185,52 +181,38 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>前幾天在批踢踢看到這篇文，<a href="https://www.ptt.cc/bbs/Python/M.1510108792.A.296.html" target="_blank" rel="noopener">[問題] 用 selenium 搶票</a>，<br>原Po只是想問使用程式搶票的合法性，<br>可惜推文全都歪到如何破解驗證碼XD</p>
-<p>推文中有許多有趣的想法和model，<br>就利用這篇文討論/紀錄吧。<br><br></p>
-<h2 id="驗證碼"><a href="#驗證碼" class="headerlink" title="驗證碼"></a>驗證碼</h2><p><img src="/2017/11/19/captcha-recognition/captcha.jpg" alt=""><br>又稱captcha，目的是辨別使用者和機器人，<br>推文中主要是討論<a href="http://railway.hinet.net/" target="_blank" rel="noopener">台鐵</a> 和<a href="http://bsr.twse.com.tw/bshtm/" target="_blank" rel="noopener">台灣證券交易所</a>的固定長度驗證碼。</p>
-<h2 id="如何破解驗證碼"><a href="#如何破解驗證碼" class="headerlink" title="如何破解驗證碼"></a>如何破解驗證碼</h2><p>想要自動產生答案，是一種圖片轉文字的問題，<br>也就是影像識別，這是個研究許多年的領域，<br>過去有許多方法處理相關的 task，<br>不過近年來深度學習（Deep Learning）興起，<br>這篇只會討論如何利用深度學習來解決這個 task。</p>
-<h3 id="Multi-Class-Convolution-Neural-Network"><a href="#Multi-Class-Convolution-Neural-Network" class="headerlink" title="Multi-Class Convolution Neural Network"></a>Multi-Class Convolution Neural Network</h3><p><img src="/2017/11/19/captcha-recognition/convolution-neural-network.jpg" alt=""><br>Convolution Neural Network 簡稱 CNN，近年來非常流行的方法，<br>我就不多作介紹了。</p>
-<p>使用CNN來對圖片分類，此時有一個問題很重要，<br>「切字」，</p>
-<p><strong>切字</strong><br>把每個字切開，可以減少 class 的數量，<br>若 captcha 只有數字，class 數量是 10 個，<br>若 captcha 包含英文，class 數量是 10+26(+26) 個，<br>不過有些圖片並不是這麼好切字，<br>這點則是切字法的最大缺點。</p>
-<p><strong>不切字</strong><br>不切字把整張圖當作 model 的 input，<br>如果 captcha 有五個字，<br>class 數量就有 10<sup>5</sup> 或 62<sup>5</sup>，<br>10<sup>5</sup>或許還能 train，62<sup>5</sup>就有些太誇張了，<br>推文中，bluecadence提到他能夠不切字並且辨識率突破 99%，<br>這點讓我很驚訝，也是我對這篇文感興趣的原因。<br><br></p>
-<h3 id="CNN-Encoder-and-RNN-decoder"><a href="#CNN-Encoder-and-RNN-decoder" class="headerlink" title="CNN Encoder and RNN decoder"></a>CNN Encoder and RNN decoder</h3><p>看到這個 task，我一開始的想法便是這個方法，<br>先用 CNN 將圖片 encode 成一串 vector，<br>再由 RNN 一步一步把每個字解析出來，</p>
-<p>但我認為這個方法需要更多的 training data，<br>如果手頭上沒有足夠多的 data，<br>一般人不太適合使用這種 model。</p>
-<p>另外，此方法應用非常廣泛，<br>這也是現今常見的 image-to-text 常見的 model，<br>如下圖，常見應用是產生圖片標題。</p>
-<p><img src="/2017/11/19/captcha-recognition/cnn-rnn.jpg" alt=""><br><br></p>
-<h3 id="Multi-Label-Convolution-Neural-Network"><a href="#Multi-Label-Convolution-Neural-Network" class="headerlink" title="Multi-Label Convolution Neural Network"></a>Multi-Label Convolution Neural Network</h3><p>終於來到本篇的重頭戲，<br>既然bluecadence大大只用了簡單的 CNN ，就能有良好效果，<br>那麼肯定是 model 設計上有一些巧思，</p>
-<p>我在 Github 上查到許多關於 verification code / captcha 的 repo，<br><a href="https://github.com/CharlesLiuyx/verificationCode" target="_blank" rel="noopener">CharlesLiuyx的這個專案</a>最符合bluecadence大的說法，<br>一樣只用了簡單的 CNN 和 MLP 分類，<br>下面引用了關鍵部分程式碼，</p>
-<figure class="highlight python"><figcaption><span>text2vec</span><a href="https://github.com/CharlesLiuyx/verificationCode/blob/master/training.py" target="_blank" rel="noopener">training.py</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文本转向量</span></span><br><span class="line">char_set = number + alphabet + ALPHABET + [<span class="string">'_'</span>]  <span class="comment"># 如果验证码长度小于4, '_'用来补齐</span></span><br><span class="line">CHAR_SET_LEN = len(char_set)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">text2vec</span><span class="params">(text)</span>:</span></span><br><span class="line">	text_len = len(text)</span><br><span class="line">	<span class="keyword">if</span> text_len &gt; MAX_CAPTCHA:</span><br><span class="line">		<span class="keyword">raise</span> ValueError(<span class="string">'验证码最长4个字符'</span>)</span><br><span class="line"> </span><br><span class="line">	vector = np.zeros(MAX_CAPTCHA*CHAR_SET_LEN)</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">char2pos</span><span class="params">(c)</span>:</span></span><br><span class="line">		<span class="keyword">if</span> c ==<span class="string">'_'</span>:</span><br><span class="line">			k = <span class="number">62</span></span><br><span class="line">			<span class="keyword">return</span> k</span><br><span class="line">		k = ord(c)<span class="number">-48</span></span><br><span class="line">		<span class="keyword">if</span> k &gt; <span class="number">9</span>:</span><br><span class="line">			k = ord(c) - <span class="number">55</span></span><br><span class="line">			<span class="keyword">if</span> k &gt; <span class="number">35</span>:</span><br><span class="line">				k = ord(c) - <span class="number">61</span></span><br><span class="line">				<span class="keyword">if</span> k &gt; <span class="number">61</span>:</span><br><span class="line">					<span class="keyword">raise</span> ValueError(<span class="string">'No Map'</span>) </span><br><span class="line">		<span class="keyword">return</span> k</span><br><span class="line">	<span class="keyword">for</span> i, c <span class="keyword">in</span> enumerate(text):</span><br><span class="line">		idx = i * CHAR_SET_LEN + char2pos(c)</span><br><span class="line">		vector[idx] = <span class="number">1</span></span><br><span class="line"><span class="keyword">return</span> vector</span><br></pre></td></tr></table></figure>
-<p>簡單來說就是將答案轉為長度 63 * 5 的 vector，<br>每36個數字代表一個「字」，<br>底線則代表空答案，可以處理不同長度的 training data，<br>對 model 來說，每個 element 都可以是 0 或 1，<br>變成 multi-label 的問題，<br>這麼一來，model 的 output 種類也不會像先前如此誇張，<br>是個值得思考的好設計XD</p>
-<p>另外需要注意的是，<br>multi-label 的 loss function 和平常的 multi-class 不同，<br>以 tensorflow 為例，<br>loss function 要改為 tf.nn.sigmoid_cross_entropy_with_logits，<br>原因就自己去查吧 :p<br><br></p>
-<h2 id="增加-Training-Data"><a href="#增加-Training-Data" class="headerlink" title="增加 Training Data"></a>增加 Training Data</h2><p>文章中，f496328mm提到他的方法，</p>
-<blockquote>
-<p>可以利用台鐵驗證碼系統，幫我上label啦，<br>簡單講，對或錯台鐵會幫我判定，對的就存label，這樣就變成自動上label啦，data會越來越多，有點類似reinforcement learning</p>
-</blockquote>
-<p>這個想法真的非常棒，<br>不僅同時測試model也同時增加資料量。<br><br></p>
-<h2 id="驗證碼還有用嗎"><a href="#驗證碼還有用嗎" class="headerlink" title="驗證碼還有用嗎?"></a>驗證碼還有用嗎?</h2><p>如同上面討論的內容，傳統的captcha辨識率已經突破99%，<br>過去的驗證碼已經沒什麼用處了。</p>
-<p>你會發現，最新的網站已經不需要手動輸入驗證碼，<br>取而代之的是下面這種 reCAPTCHA，<br><img src="/2017/11/19/captcha-recognition/hero-recaptcha-demo.gif" alt=""></p>
-<blockquote>
-<p>只需要點選「我不是機器人」，你就會傳送一組資料到 Google 的伺服器中，包含 Google 偷偷記錄下來的 IP 位址、國家、時間， 以及你打勾之前的滑鼠軌跡、打勾之前的網頁捲動紀錄 等。</p>
-</blockquote>
-<p>延伸閱讀: <a href="https://buzzorange.com/techorange/2017/09/13/captcha-and-recaptcha/" target="_blank" rel="noopener">為什麼只要勾選「我不是機器人」，Google 就知道你不是機器人？</a></p>
-<p>看完文章後別再說「點一下就能判斷機器人，這方法有夠蠢。」這種話了!<br>這裡面付出的心血可是超乎想像的。</p>
+        <p>這周一(11/27)去 IJCNLP 的 workshop (DDDSM) 報 paper，<br>簡單記錄一下心路歷程XD<br>順便記錄 IJCNLP Day 0 的感想。</p>
+<h1 id="Oral-Presentation"><a href="#Oral-Presentation" class="headerlink" title="Oral Presentation"></a>Oral Presentation</h1><h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="http://aclweb.org/anthology/W17-5804" target="_blank" rel="noopener">〈 Incorporating Dependency Trees Improve Identification of Pregnant Women on Social Media Platforms 〉</a><br>就是在 <a href="https://aszx4510.github.io/about/#Identification-of-Pregnant-Women-on-Social-Media">About Me</a> 中提到過的研究，<br>利用推特內容判斷 user 是否表達已經懷孕的資訊，<br>像是下面這則 tweet，充分表示出她已懷孕，而且還附上懷孕照片，<br>毫無疑問，這是個 positive case。<br><img src="/2017/12/01/ijcnlp-oral-presentation/pregnant-tweet.PNG" alt=""><br><br></p>
+<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><ul>
+<li>PPT</li>
+<li>講稿</li>
+<li>練習、試報</li>
+</ul>
+<p>投影片和講稿都是必要的東西，</p>
+<p>投以片一開始字體太小、字數太多，<br>講稿的部分，一開始我還不想準備講稿，<br>想試著即興發揮，但我英文太爛了，<br>如果沒有準備講稿肯定爆炸，</p>
+<p>最後練習試報，<br>總共練習了三次，<br>第一次是Morphe，第二次是Morphe和乃文，<br>第三次是書豪，這次還是用Line報給他聽XD</p>
+<p>每次報告完，大家都說「還不錯」、「很好/很棒」，<br>至少以第一次用英文報告來說，很有水準了，<br>感謝大家給我許多信心XD<br><br></p>
+<h2 id="實際上台"><a href="#實際上台" class="headerlink" title="實際上台"></a>實際上台</h2><p><img src="/2017/12/01/ijcnlp-oral-presentation/dddsm-room.jpg" alt=""></p>
+<p>11/27，實際上台報告，<br>在台上報告時真的非常緊張XD<br>明明台下人數不多，甚至好幾個是自己人，<br>但我還是沒辦法控制好緊張的情緒，</p>
+<p>一手拿麥克風，另一手拿光筆，<br>實在是沒辦法拿著講稿，<br>甚至連翻頁也很困難，這部分需要改進，</p>
+<p>好險最終按照練習時的報告方法，<br>順利的報告完畢，有些句子需要看著講稿念，<br>最後大家討論的滿多的，提出許多問題，<br>不過我聽不太懂XD (感謝JJ和詠淳幫我回應)。<br><br></p>
+<h2 id="改進"><a href="#改進" class="headerlink" title="改進"></a>改進</h2><p>最大問題就是我的英文太爛了😔<br>如果英文夠好，就不會有這麼多其他問題了，<br>不過英文能力不是短期就能改善的，只好從其他部分補強了，</p>
+<p>主要缺點就是練習次數太少了，應該要練習更多次，<br>對於講稿內容和投影片順序瞭若指掌，<br>才能達到不需要講稿，「看起來」像是即興發揮的境界😆<br><br></p>
+<h1 id="IJCNLP-Day-0-心得"><a href="#IJCNLP-Day-0-心得" class="headerlink" title="IJCNLP Day 0 心得"></a>IJCNLP Day 0 心得</h1><p><img align="right" src="/2017/12/01/ijcnlp-oral-presentation/ijcnlp2017.png" width=""></p>
+<p>第一次參加 international conference，而且還要上台報告，<br>雖然很幾張，但總結來說還是挺新鮮的，哈哈，<br>而且發現外國人的英文也不見得很流利:p<br>我也有聽其他人的演講，<br>我報告完後，還有 Onkar、白熊、Neha 的報告，<br>白熊的英文口說出乎意料的卡，<br>不過白熊還是相當有自信的報告完全部內容，<br>這種自信是我該學習的部分，</p>
+<p>coffee break 的點心很好吃，<br>可惜沒有奶茶 &gt;_&lt;<br>由於是 pre-conference workshop，參加的人數不多，<br>點心根本吃不完阿~</p>
+<p>詠淳說，接下來三天的 main conference 會有很多人，<br>我也很期待接下來的活動內容。</p>
+<p>main conference 的心得就留在下篇拉~</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2017/12/01/ijcnlp-oral-presentation/" title= Oral Presentation at IJCNLP Workshop (DDDSM) >
-                    <span>Next Post</span>
-                    <span>Oral Presentation at IJCNLP Workshop (DDDSM)</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2017/11/19/open-blog/" title= Blog開張 >
+                <a href= "/2017/11/19/captcha-recognition/" title= 識別驗證碼 >
                     <span>Previous Post</span>
-                    <span>Blog開張</span>
+                    <span>識別驗證碼</span>
                 </a>
             </li>
         
@@ -247,8 +229,8 @@
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
         
         var disqus_config = function () {
-        this.page.url = "http://aszx4510.github.io/2017/11/19/captcha-recognition/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "識別驗證碼"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "http://aszx4510.github.io/2017/12/01/ijcnlp-oral-presentation/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "Oral Presentation at IJCNLP Workshop (DDDSM)"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
         
         (function () { // DON'T EDIT BELOW THIS LINE
@@ -319,7 +301,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#驗證碼"><span class="toc-number">1.</span> <span class="toc-text">驗證碼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何破解驗證碼"><span class="toc-number">2.</span> <span class="toc-text">如何破解驗證碼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-Class-Convolution-Neural-Network"><span class="toc-number">2.1.</span> <span class="toc-text">Multi-Class Convolution Neural Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CNN-Encoder-and-RNN-decoder"><span class="toc-number">2.2.</span> <span class="toc-text">CNN Encoder and RNN decoder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-Label-Convolution-Neural-Network"><span class="toc-number">2.3.</span> <span class="toc-text">Multi-Label Convolution Neural Network</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加-Training-Data"><span class="toc-number">3.</span> <span class="toc-text">增加 Training Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#驗證碼還有用嗎"><span class="toc-number">4.</span> <span class="toc-text">驗證碼還有用嗎?</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Oral-Presentation"><span class="toc-number">1.</span> <span class="toc-text">Oral Presentation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#題目"><span class="toc-number">1.1.</span> <span class="toc-text">題目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事前準備"><span class="toc-number">1.2.</span> <span class="toc-text">事前準備</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#實際上台"><span class="toc-number">1.3.</span> <span class="toc-text">實際上台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改進"><span class="toc-number">1.4.</span> <span class="toc-text">改進</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IJCNLP-Day-0-心得"><span class="toc-number">2.</span> <span class="toc-text">IJCNLP Day 0 心得</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
