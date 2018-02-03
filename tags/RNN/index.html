@@ -19,6 +19,13 @@
         }
     </style>
     <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
         .site-intro-placeholder {
             position: absolute;
             z-index: -2;
@@ -40,7 +47,7 @@
         }
     }
 </style>
-    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <link rel="stylesheet" href = /css/style.css?v=20180120 />
     <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
     
     <script src="/scripts/main.js" defer></script>
@@ -49,10 +56,12 @@
     <!-- 谷歌统计  -->
     
 </head>
+
     
     
 <header class="header">
 
+    <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
@@ -149,11 +158,11 @@
     
     
         <article class="index-post">
+            <a class="abstract-title" href = "/2017/11/19/captcha-recognition/" >
+                
+                    <span>識別驗證碼</span>
+            </a>
             <a class="content-show-full" href = "/2017/11/19/captcha-recognition/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>識別驗證碼</span>
-                    </h2>
                 <div class="abstract-content">
                     前幾天在批踢踢看到這篇文，[問題] 用 selenium 搶票，原Po只是想問使用程式搶票的合法性，可惜推文全都歪到如何破解驗證碼XD
 推文中有許多有趣的想法和model，就利用這篇文討論/紀錄吧。
@@ -229,6 +238,11 @@ Multi-Class Convo...
     </div>
     <!-- 不蒜子  -->
     
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
 </footer>
     </div>
     <!-- toc -->
@@ -244,8 +258,6 @@ Multi-Class Convo...
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -323,13 +335,13 @@ Multi-Class Convo...
     
         <span class="sidebar-tag-name"><a href= "#">批踢踢</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">日常</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">IJCNLP</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Conference</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">日常</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -338,7 +350,7 @@ Multi-Class Convo...
     2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
     <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
     3、在根目录_config.yml里添加配置：
-    <pre style="color: #888; font-size: 0.6rem;">
+    <pre style="color: #787878; font-size: 0.6rem;">
 jsonContent:
   meta: false
   pages: false
@@ -368,6 +380,8 @@ jsonContent:
     }
 </script>
     <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     <!-- CNZZ统计  -->
     

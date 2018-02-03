@@ -19,6 +19,13 @@
         }
     </style>
     <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
         .site-intro-placeholder {
             position: absolute;
             z-index: -2;
@@ -40,7 +47,7 @@
         }
     }
 </style>
-    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <link rel="stylesheet" href = /css/style.css?v=20180120 />
     <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
     
     <script src="/scripts/main.js" defer></script>
@@ -49,10 +56,12 @@
     <!-- 谷歌统计  -->
     
 </head>
+
     
     
 <header class="header">
 
+    <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
@@ -149,11 +158,11 @@
     
     
         <article class="index-post">
+            <a class="abstract-title" href = "/2017/12/15/no-game-no-life-zero/" >
+                
+                    <span>No Game No Life Zero</span>
+            </a>
             <a class="content-show-full" href = "/2017/12/15/no-game-no-life-zero/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>No Game No Life Zero</span>
-                    </h2>
                 <div class="abstract-content">
                     前幾天去電影院看了遊戲人生劇場版，其實正確名稱是全大寫的 NO GAME NO LIFE ZERO，本篇就紀錄一下這次的心得吧。
 慶祝畢業哈哈，但其實不是我畢業，是要慶祝鄒族學長順利畢業了，許久沒和鄒族學長聯絡，前陣子在 Facebook 上得知鄒族已經口試完畢，順利畢業，當時就想約學長一起吃個飯、慶祝畢業，無奈當時有其他事情要忙。前陣子終於忙完 IJCNLP 的事情，其他事情也告一個段落，終於有時間約學長一起慶祝，最後我們決定去看遊戲人生劇場版，並且體驗看看傳說中的 4DX。
@@ -179,11 +188,11 @@
     
     
         <article class="index-post">
+            <a class="abstract-title" href = "/2017/12/01/ijcnlp-oral-presentation/" >
+                
+                    <span>Oral Presentation at IJCNLP Workshop (DDDSM)</span>
+            </a>
             <a class="content-show-full" href = "/2017/12/01/ijcnlp-oral-presentation/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Oral Presentation at IJCNLP Workshop (DDDSM)</span>
-                    </h2>
                 <div class="abstract-content">
                     這周一(11/27)去 IJCNLP 的 workshop (DDDSM) 報 paper，簡單記錄一下心路歷程XD順便記錄 IJCNLP Day 0 的感想。
 Oral Presentation題目〈 Incorporating Dependency Trees Improve Identification of Pregnant Women on Social Media Platforms 〉就是在 About Me 中提到過的研究，利用推特內容判斷 user 是否表達已經懷孕的資訊，像是下面這則 tweet，充分表示出她已懷孕，而且還附上懷孕照片，毫無疑問，這是個 positiv...
@@ -252,6 +261,11 @@ Oral Presentation題目〈 Incorporating Dependency Trees Improve Identification
     </div>
     <!-- 不蒜子  -->
     
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
 </footer>
     </div>
     <!-- toc -->
@@ -267,8 +281,6 @@ Oral Presentation題目〈 Incorporating Dependency Trees Improve Identification
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -346,13 +358,13 @@ Oral Presentation題目〈 Incorporating Dependency Trees Improve Identification
     
         <span class="sidebar-tag-name"><a href= "#">批踢踢</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">日常</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">IJCNLP</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Conference</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">日常</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -361,7 +373,7 @@ Oral Presentation題目〈 Incorporating Dependency Trees Improve Identification
     2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
     <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
     3、在根目录_config.yml里添加配置：
-    <pre style="color: #888; font-size: 0.6rem;">
+    <pre style="color: #787878; font-size: 0.6rem;">
 jsonContent:
   meta: false
   pages: false
@@ -391,6 +403,8 @@ jsonContent:
     }
 </script>
     <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     <!-- CNZZ统计  -->
     

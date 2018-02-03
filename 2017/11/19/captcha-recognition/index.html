@@ -19,6 +19,13 @@
         }
     </style>
     <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
         .site-intro-placeholder {
             position: absolute;
             z-index: -2;
@@ -40,7 +47,7 @@
         }
     }
 </style>
-    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <link rel="stylesheet" href = /css/style.css?v=20180120 />
     <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
     
     <script src="/scripts/main.js" defer></script>
@@ -49,12 +56,14 @@
     <!-- 谷歌统计  -->
     
 </head>
+
     
         <body class="post-body">
     
     
 <header class="header">
 
+    <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
@@ -112,9 +121,22 @@
     
 </div>
             
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
                 <span class="post-intro-time">2017/11/19</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
             </div>
         
     </div>
@@ -268,6 +290,7 @@
 
 
     
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -311,6 +334,11 @@
     </div>
     <!-- 不蒜子  -->
     
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
 </footer>
     </div>
     <!-- toc -->
@@ -333,8 +361,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -412,13 +438,13 @@
     
         <span class="sidebar-tag-name"><a href= "#">批踢踢</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">日常</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">IJCNLP</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Conference</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">日常</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -427,7 +453,7 @@
     2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
     <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
     3、在根目录_config.yml里添加配置：
-    <pre style="color: #888; font-size: 0.6rem;">
+    <pre style="color: #787878; font-size: 0.6rem;">
 jsonContent:
   meta: false
   pages: false
@@ -457,6 +483,8 @@ jsonContent:
     }
 </script>
     <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     <!-- CNZZ统计  -->
     
